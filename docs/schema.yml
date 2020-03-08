@@ -1,0 +1,45 @@
+Models:
+  - User:
+    - Username
+    - Password
+    - Email
+    - has_one user_detail
+    - has_one candidate_detail
+    - has_many votes
+  - UserDetail: # Model
+    - name: string
+    - gender: string
+    - branch: string
+    - year: integer
+    - roll Number: string
+    - course: string
+    - section: string
+    - opt-in: bool
+    - residence: string
+    - belongs_to user
+  - Candidate: # Model
+    - affilation: string
+    - cgpa: decimal
+    - past_experience: text
+    - about_me: text
+    - link: text
+    - belongs_to user
+  - Election: # Scaffolding
+    - position: string
+    - deadline: datetime
+    - start: datetime
+    - end: datetime
+    - session: string
+    - vote_count: json
+    - has_many nominations
+    - has_many candidates, through nominations
+    - has_many votes
+  - Vote: # Model
+    - data: int
+    - hash: text
+    - belongs_to election
+    - belongs_to user
+    - belongs_to vote, as previous_vote
+  - Nomination: # Model
+    - belongs_to user
+    - belongs_to election

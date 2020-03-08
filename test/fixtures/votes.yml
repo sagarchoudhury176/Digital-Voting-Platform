@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hash: MyText
+  election: one
+  candidate: one
+  user: one
+  vote: one
+
+two:
+  hash: MyText
+  election: two
+  candidate: two
+  user: two
+  vote: two

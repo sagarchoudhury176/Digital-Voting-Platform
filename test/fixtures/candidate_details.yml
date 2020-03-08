@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  affilation: MyString
+  cgpa: 9.99
+  past_experiences: MyText
+  about_me: MyText
+  link: MyText
+  user: one
+
+two:
+  affilation: MyString
+  cgpa: 9.99
+  past_experiences: MyText
+  about_me: MyText
+  link: MyText
+  user: two

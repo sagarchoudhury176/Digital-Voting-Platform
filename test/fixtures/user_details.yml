@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  branch: MyString
+  year: 1
+  roll_number: MyString
+  course: MyString
+  section: MyString
+  opt-in: false
+  residence: MyString
+  user: one
+
+two:
+  name: MyString
+  gender: MyString
+  branch: MyString
+  year: 1
+  roll_number: MyString
+  course: MyString
+  section: MyString
+  opt-in: false
+  residence: MyString
+  user: two

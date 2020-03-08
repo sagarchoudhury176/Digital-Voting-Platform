@@ -1,0 +1,34 @@
+<%= content_for :title do %><%= @election.position %><% end %>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= date_format(@election.deadline) %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= date_format(@election.start_time) %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= date_format(@election.end_time) %>
+</p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @election.session %>
+</p>
+
+<% if @election.voting_over? %>
+  <p>
+    <strong>Winner:</strong>
+    <%= link_to @election.winner.name, candidate_path(@election.winner) %>
+  </p>
+<% end %>
+
+<div id="candidates-panel">
+  <%= render partial: candidates_panel_partial_path(@election), locals: {election: @election} %>
+</div>
+
+<%= link_to 'Back', elections_path %>

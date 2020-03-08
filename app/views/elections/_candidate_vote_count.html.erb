@@ -1,0 +1,35 @@
+<h3 class="text-center">Election Results</h3>
+<br>
+<table class="table table-condensed">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Candidate</th>
+      <th scope="col">Votes</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% candidates = election.candidates %>
+    <% vote_count = election.vote_count.sort_by(&:last).reverse.to_h %>
+    <% total_votes = election.votes.count - 1 %>
+    <% vote_count.each do |candidate_id, votes| %>
+      <% candidate = candidates.find(candidate_id) %>
+      <tr>
+        <th scope="row">
+          <%= link_to candidate.name, candidate_path(candidate) %>
+        </th>
+        <td><%= votes %></td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="<%= votes %>" 
+                                       aria-valuemin="0" aria-valuemax="<%= total_votes %>" 
+                                       style="width: <%= percent(votes, total_votes) %>%;">
+              <%= votes %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

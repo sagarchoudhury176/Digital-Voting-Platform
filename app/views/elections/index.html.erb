@@ -1,0 +1,27 @@
+<%= content_for :title do %>Elections<% end %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Session</th>
+      <th scope="col">Registration Deadline</th>
+      <th scope="col">Voting Start Time</th>
+      <th scope="col">Voting End Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @elections.each do |election| %>
+      <tr>
+        <th scope="row">
+          <%= link_to election.position, election_path(election) %>
+        </th>
+        <td><%= election.session %></td>
+        <td><%= date_format(election.deadline) %></td>
+        <td><%= date_format(election.start_time) %></td>
+        <td><%= date_format(election.end_time) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

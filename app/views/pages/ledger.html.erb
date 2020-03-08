@@ -1,0 +1,10 @@
+<%= content_for :title do %>Ledger<% end %>
+
+<%= form_with url: ledger_path(format: 'csv') do |f| %>
+  <div class="form-group">
+    <%= f.label :election %><br>
+    <%= f.collection_select :election, Election.finished, :id, :position %>
+  </div>
+
+  <%= f.submit "Fetch ledger" %>
+<% end %>

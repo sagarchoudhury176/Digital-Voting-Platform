@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Reseeding production database"
+RAILS_ENV=production rails db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+echo "Finished"

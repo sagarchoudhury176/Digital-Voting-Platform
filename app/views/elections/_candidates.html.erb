@@ -1,0 +1,42 @@
+<h3 class="text-center">Nominated Candidates</h3>
+<br>
+
+<% if voted(election.id) %>
+  <p><strong>You have already voted in this election</strong></p>
+<% end %>
+
+<% candidates = election.candidates %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Candidate</th>
+      <th scope="col">Affilation</th>
+      <th scope="col">Branch</th>
+      <th scope="col">Year</th>
+      <th scope="col">Course</th>
+      <% if @vote %>
+        <th scope="col">Vote</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% candidates.each do |candidate| %>
+      <tr>
+        <th scope="row">
+          <%= link_to candidate.name, candidate_path(candidate) %>
+        </th>
+        <td><%= candidate.affilation %></td>
+        <td><%= candidate.branch %></td>
+        <td><%= candidate.year %></td>
+        <td><%= candidate.course %></td>
+        <% if @can_vote %>
+          <td>
+            <%= link_to 'Vote', election_vote_path(election.id, candidate.id), remote: true %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
